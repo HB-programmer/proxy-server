@@ -17,12 +17,12 @@ Before you get started, make sure you have the following installed:
 
 1. Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone git@github.com:HB-programmer/proxy-server.git
    ```
 
 2. Navigate into the project directory:
    ```bash
-   cd your-repo-name
+   cd proxy-server
    ```
 
 3. Install dependencies:
@@ -37,12 +37,21 @@ Before you get started, make sure you have the following installed:
    REDIS_PORT=6379
    REDIS_TTL=300
    JWT_SECRET=your_secret_key_here  # Secret for signing JWT tokens
+   API_URL=your_api_url_here
+   VALID_EMAIL=your_valid_email@example.com
+   VALID_PASSWORD=your_valid_password
+   MAX_LIMIT=5
+   WINDOW_SIZE=1 * 60 * 1000
    ```
 
    - `REDIS_HOST`: Host for the Redis server.
    - `REDIS_PORT`: Port where the Redis server is running.
    - `REDIS_TTL`: Time to live (TTL) for cached responses in Redis (in seconds).
    - `JWT_SECRET`: A secret key used to sign JWT tokens. Replace this with your own secure key.
+   - `API_URL`: URL of the external API you want to proxy.
+   - `VALID_EMAIL` and `VALID_PASSWORD`: Valid credentials for login.
+   - `MAX_LIMIT` and `WINDOW_SIZE`: Configuration for rate limiting.
+
 
 5. Ensure Redis is running on your machine or through a Docker container:
    ```bash
@@ -185,11 +194,6 @@ This middleware ensures that only requests with a valid JWT token can access the
 ## Conclusion
 
 This setup demonstrates how to implement a basic Express API with JWT authentication, Redis caching, and rate limiting. It is easily extendable to include additional routes, more sophisticated authentication (e.g., OAuth, password hashing), and advanced caching strategies.
-
-## License
-
-MIT License. See `LICENSE` for more information.
-```
 
 ### How to Use:
 
